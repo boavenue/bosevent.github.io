@@ -1,0 +1,299 @@
+@import "_mixin";
+@import "_variables";
+// f 60px
+.heading-h1 {
+	font-size: 4rem;
+}
+
+// f 40px
+.heading-h2 {
+	font-size: 2.667rem;
+	@media (max-width: 812px) {
+		font-size: 2.3rem;
+	}
+	@media (max-width: 568px) {
+		font-size: 1.9rem;
+	}
+}
+
+// f 30px
+.heading-h3 {
+	font-size: 2rem;
+	@media (max-width: 568px) {
+		font-size: 1rem;
+	}
+}
+
+// f 22px
+.heading-h4 {
+	font-size: 1.467rem;
+}
+
+// f 16px
+.heading-h5 {
+	font-size: 1.067rem;
+}
+
+img {
+	border: none;
+}
+
+.m-auto {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.nimg {
+	max-width: 100%;
+	height: auto;
+}
+
+.ncontainer-large {
+	margin: 0 2.5rem;
+}
+
+.ncontainer {
+	@include pd-lr(15, 15);
+	margin-left: auto;
+	margin-right: auto;
+	@media (max-width: 768px) {
+		@include pd-lr(20, 20);
+	}
+	@media (min-width: 992px) {
+		width: 992px;
+	}
+	@media (min-width: 1200px) {
+		width: 1130px;
+	}
+	@media (min-width:1400px) {
+		width: 1365px;
+	}
+}
+
+.lh--19 {
+	line-height: 1.9;
+}
+
+.lh--18 {
+	line-height: 1.8;
+}
+
+.lh--15 {
+	line-height: 1.5;
+}
+
+.lh--14 {
+	line-height: 1.4;
+}
+
+.lh--13 {
+	line-height: 1.3;
+}
+
+.lh--12 {
+	line-height: 1.2;
+}
+
+.lh--11 {
+	line-height: 1.1;
+}
+
+.h--100 {
+	height: 100%;
+}
+
+.txt--c {
+	text-align: center;
+}
+
+.txt--l {
+	text-align: left;
+}
+
+.txt--r {
+	text-align: right;
+}
+
+.txt--j {
+	text-align: justify;
+}
+
+.txt--up {
+	text-transform: uppercase;
+}
+
+.txt--cap {
+	text-transform: capitalize;
+}
+
+.cl--white {
+	color: #fff;
+}
+
+.cl--white1 {
+	color: rgba($color-gray, .7);
+}
+
+.cl--main {
+	color: $color-main;
+}
+
+.cl--grayblack {
+	color: $color-grayblack;
+}
+
+.cl--black {
+	color: $color-black;
+}
+
+.f--400 {
+	font-weight: 400;
+}
+
+.f--500 {
+	font-weight: 500;
+}
+
+.f--600 {
+	font-weight: 600;
+}
+
+.f--900 {
+	font-weight: 900;
+}
+
+.f--12 {
+	font-size: $font-12;
+}
+
+.f--13 {
+	font-size: $font-13;
+}
+
+.f--14 {
+	font-size: $font-14;
+}
+
+.f--15 {
+	font-size: $font-15;
+}
+
+.f--16 {
+	font-size: $font-16;
+}
+
+.f--18 {
+	font-size: $font-18;
+}
+
+.f--20 {
+	font-size: $font-20;
+}
+
+.f--25 {
+	font-size: $font-25;
+}
+
+.mb--5 {
+	margin-bottom: 5px;
+}
+
+.mb--10 {
+	margin-bottom: 10px;
+}
+
+.wp-table {
+	position: relative;
+	display: table;
+	width: 100%;
+	height: 100%;
+}
+
+.hid-1024 {
+	display: block;
+	@include bp(maw1024) {
+		display: none;
+	}
+}
+
+.visi-1024 {
+	display: none;
+	@media (max-width: 1024px) {
+		display: block;
+	}
+}
+
+.visi-768 {
+	display: none;
+	@media (max-width: 768px) {
+		display: block;
+	}
+}
+
+.hid-768 {
+	display: block;
+	@media (max-width: 768px) {
+		display: none;
+	}
+}
+
+.tab-cell-m {
+	@include table-cell(table-cell, middle);
+}
+
+.tab-cell-t {
+	@include table-cell(table-cell, top);
+}
+
+.wp-inlineb {
+	font-size: 0;
+}
+
+.inlineb-t {
+	@include vertical-ds(inline-block, top);
+}
+
+.inlineb-m {
+	@include vertical-ds(inline-block, middle);
+}
+
+.inlineb-b {
+	@include vertical-ds(inline-block, bottom);
+}
+
+.clear-f,
+.row,
+.container {
+	&:before {
+		content: '';
+		display: table;
+	}
+	&:after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+}
+
+.list-clm {
+	&.clm-02 {
+		.nitem {
+			width: 50%;
+		}
+	}
+	&.clm-03 {
+		.nitem {
+			width: 33.3333%;
+		}
+	}
+	&.clm-04 {
+		.nitem {
+			width: 25%;
+		}
+	}
+	&.clm-05 {
+		.nitem {
+			width: 20%;
+		}
+	}
+}

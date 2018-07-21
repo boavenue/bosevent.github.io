@@ -1,0 +1,143 @@
+// BEM - Element's name
+@mixin e($element) {
+    &__#{$element} {
+        @content;
+    }
+}
+
+// BEM - Modifier's name
+@mixin m($modifier) {
+    &--#{$modifier} {
+        @content;
+    }
+}
+
+// Keyframes
+@mixin keyframes ($animation_name) {
+    @-webkit-keyframes #{$animation_name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation_name} {
+        @content;
+    }
+    @-o-keyframes #{$animation_name} {
+        @content;
+    }
+    @keyframes #{$animation_name} {
+        @content;
+    }
+}
+
+// Calc 
+@mixin calc($property, $express, $num) {
+    #{$property}: #{$num};
+    #{$property}: -moz-calc(#{$express});
+    #{$property}: calc(#{$express});
+    #{$property}: -webkit-calc(#{$express});
+}
+
+// Prefix
+@mixin prefix($property, $value) {
+    #{$property}: #{$value};
+    -webkit-#{$property}: #{$value};
+    -moz-#{$property}: #{$value};
+    -ms-#{$property}: #{$value};
+    -o-#{$property}: #{$value};
+}
+
+// Vertical align & display	
+@mixin vertical-ds($display, $vertical) {
+    display: $display;
+    vertical-align: $vertical;
+}
+
+// Vertical align & display	
+@mixin table-cell($display, $vertical) {
+    display: $display;
+    vertical-align: $vertical;
+}
+
+// Padding
+@mixin pd-lr($left, $right) {
+    padding-left: $left + px;
+    padding-right: $right + px;
+}
+
+@mixin pd-tb($top, $bottom) {
+    padding-top: $top + px;
+    padding-bottom: $bottom + px;
+}
+
+// Margin
+@mixin mg-lr($left, $right) {
+    margin-left: $left + px;
+    margin-right: $right + px;
+}
+
+@mixin mg-tb($top, $bottom) {
+    margin-top: $top + px;
+    margin-bottom: $bottom + px;
+}
+
+// Ratio img 
+@mixin aspect-ratio($width, $height) {
+    &:before {
+        display: block;
+        content: "";
+        padding-top: ($height / $width) * 100%;
+    }
+    >.nratio--img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        height: 101%;
+        width: 100%;
+        object-fit: cover;
+        @include prefix(transform, translate(-50%, -50%));
+    }
+}
+
+// Media querry
+@mixin bp($breakpoint) {
+    //  Max width
+    @if $breakpoint==maw768 {
+        @media (max-width: 768px) {
+            @content;
+        }
+    }
+    @else if $breakpoint==maw1024 {
+        @media (max-width: 1024px) {
+            @content;
+        }
+    }
+    @else if $breakpoint==maw1280 {
+        @media (max-width: 1280px) {
+            @content;
+        }
+    }
+    @else if $breakpoint==maw1440 {
+        @media (max-width: 1440px) {
+            @content;
+        }
+    }
+    @else if $breakpoint==maw1599 {
+        @media (max-width: 1599px) {
+            @content;
+        }
+    } //  Min width
+    @else if $breakpoint==miw992 {
+        @media (min-width: 992px) {
+            @content;
+        }
+    }
+    @else if $breakpoint==miw1200 {
+        @media (min-width: 1200px) {
+            @content;
+        }
+    }
+    @else if $breakpoint==miw1400 {
+        @media (min-width: 1400px) {
+            @content;
+        }
+    }
+}

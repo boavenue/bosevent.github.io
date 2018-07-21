@@ -1,0 +1,154 @@
+.nline-title {
+	position: relative;
+	height: 3px;
+	margin-top: 10px;
+	&:before,
+	&:after {
+		content: '';
+		position: absolute;
+		display: block;
+	}
+	&:after {
+		width: 10px;
+		height: 3px;
+		background-color: #fff;
+		left: 45%;
+		@include prefix(transform, translate(-45%, 0));
+	}
+	&:before {
+		content: '';
+		position: absolute;
+		left: 50%;
+		width: 100px;
+		height: 3px;
+		border-radius: 2px;
+		background-color: $color-main;
+		@include prefix(transform, translate(-50%, 0));
+	}
+	&.bl-after {
+		&:after {
+			background-color: $color-black1;
+		}
+	}
+	&.red-after {
+		&:after {
+			background-color: $color-main;
+		}
+	}
+	&.white-after {
+		&:before {
+			background-color: #fff;
+		}
+		&:after {
+			background-color: $color-main;
+		}
+	}
+}
+
+.nheading {
+	&__wrap {
+		.ntext-des {
+			margin-top: 45px;
+			@include pd-lr(180, 180);
+			@media (max-width: 812px) {
+				margin-top: 30px;
+				@include pd-lr(15, 15);
+			}
+			@media (max-width: 667px) {
+				@include pd-lr(0, 0);
+			}
+		}
+	}
+	&__wrap-h5 {
+		margin-bottom: 15px;
+	}
+}
+
+.nbutton {
+	display: inline-block;
+	line-height: 1.5;
+	font-size: $font-12;
+	cursor: pointer;
+	outline: 0;
+	border: 1px solid transparent;
+	text-decoration: none;
+	border-color: transparent;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	@include prefix(transition, all .3s cubic-bezier(0.445, 0.05, 0.55, 0.95));
+	@media (max-width: 812px) {
+		font-size: .7rem;
+	}
+	&:hover {
+		&:before {
+			width: 25px;
+		}
+	}
+	&:before {
+		content: '';
+		display: inline-block;
+		vertical-align: middle;
+		width: 15px;
+		height: 2px;
+		margin-right: 10px;
+		@include prefix(transition, all .25s cubic-bezier(0.445, 0.05, 0.55, 0.95));
+	}
+	&.nsize--b {
+		padding: 16px 40px;
+		min-width: 170px;
+		@media (max-width: 812px) {
+			padding: 13px 30px;
+			min-width: 150px;
+		}
+	}
+	&.color--1 {
+		color: #fff;
+		background-color: $color-main;
+		&:before {
+			background-color: #fff;
+		}
+		&:hover {
+			background-color: transparent;
+			border-color: $color-main;
+			color: $color-main;
+			&:before {
+				background-color: $color-main;
+			}
+		}
+	}
+	&.color--2 {
+		color: #fff;
+		border-color: #fff;
+		&:before {
+			background-color: #fff;
+		}
+		&:hover {
+			background-color: #fff;
+			border-color: transparent;
+			color: $color-black;
+			&:before {
+				background-color: $color-black;
+			}
+		}
+	}
+}
+
+.nform-control {
+	height: 51px;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border: 1px solid transparent;
+	font-size: $font-13;
+	color: $color-black1;
+	padding: 10px 12px;
+	line-height: 1.5;
+	min-width: 180px;
+	@include prefix(transition, all .2s ease);
+	&:focus {
+		background-color: #fff;
+	}
+	@media (max-width: 812px) {
+		height: 38px;
+		min-width: 160px;
+	}
+}

@@ -1,0 +1,853 @@
+//  01. Section Banner
+.bg-banner {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	@media (max-width: 812px) {
+		max-height: 700px;
+	}
+	&__inner {
+		position: relative;
+		z-index: 2;
+		@include pd-lr(30, 30);
+		@media (max-width: 667px) {
+			@include pd-lr(10, 10);
+		}
+	}
+	&__title {
+		letter-spacing: 2px;
+		@include prefix(animation, titleAnimation 2s ease-out);
+		@media (max-width: 736px) {
+			font-size: 2.5rem;
+			line-height: 1.2;
+		}
+	}
+	&__description {
+		margin-top: 10px;
+		@include prefix(animation, desAnimation 4s ease-in);
+	}
+	&__btn {
+		margin-top: 40px;
+		@include prefix(animation, titleAnimation 4.5s ease-out);
+		@media (max-width: 568px) {
+			margin-top: 25px;
+		}
+	}
+	>.wp-table {
+		background-color: #151515;
+	}
+	.mouse {
+		position: absolute;
+		left: 50%;
+		bottom: 45px;
+		height: 42px;
+		width: 24px;
+		border-radius: 14px;
+		-webkit-border-radius: 14px;
+		display: inline-block;
+		border: 1px solid $color-gray;
+		margin: auto;
+		z-index: 9;
+		@include prefix(transform, translate(-50%, 0));
+		@media (max-width: 812px) and (orientation: landscape) {
+			bottom: 15px;
+		}
+		@media (max-width: 736px) {
+			height: 35px;
+			width: 20px;
+		}
+	}
+	.wheel {
+		height: 8px;
+		width: 2px;
+		display: block;
+		margin: 5px auto;
+		background-color: $color-gray;
+		position: relative;
+		border-radius: 8px;
+		-webkit-border-radius: 8px;
+		@include prefix(animation, mouseWheel 1s linear infinite);
+	}
+	@include keyframes(mouseWheel) {
+		0% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+		100% {
+			opacity: 0;
+			transform: translateY(8px);
+		}
+	}
+}
+
+.list-slide {
+	height: 100%;
+	&__bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 0;
+		overflow: hidden;
+		color: transparent;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+		-webkit-backface-visibility: hidden;
+		@include prefix(animation, imageAnimation 40s linear infinite);
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: rgba(23, 24, 25, 0.85);
+			z-index: 2;
+		}
+	}
+	&__item {
+		height: 100%;
+		&:nth-child(1) {
+			.list-slide__bg {
+				opacity: 1;
+			}
+		}
+		&:nth-child(2) {
+			.list-slide__bg {
+				opacity: 0;
+				@include prefix(animation-delay, 10s);
+			}
+		}
+		&:nth-child(3) {
+			.list-slide__bg {
+				opacity: 0;
+				@include prefix(animation-delay, 20s);
+			}
+		}
+		&:nth-child(4) {
+			.list-slide__bg {
+				opacity: 0;
+				@include prefix(animation-delay, 30s);
+			}
+		}
+	}
+}
+
+@include keyframes(imageAnimation) {
+	0% {
+		opacity: 0;
+		@include prefix(animation-timing-function, ease-in);
+	}
+	8% {
+		opacity: 1;
+		@include prefix(transform, scale(1.05));
+		@include prefix(animation-timing-function, ease-out);
+	}
+	17% {
+		opacity: 1;
+		@include prefix(transform, scale(1.1));
+	}
+	25% {
+		opacity: 0;
+		@include prefix(transform, scale(1.05));
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes titleAnimation {
+	0% {
+		opacity: 0;
+		@include prefix(transform, translateY(100px) scale(1.15));
+	}
+	20% {
+		opacity: .3;
+	}
+	40% {
+		opacity: 1;
+		@include prefix(transform, translateY(0) scale(1.05));
+	}
+}
+
+@keyframes desAnimation {
+	0% {
+		opacity: 0;
+		@include prefix(transform, translateY(50px) scale(1.15));
+	}
+	20% {
+		opacity: .3;
+	}
+	40% {
+		opacity: 1;
+		@include prefix(transform, translateY(0) scale(1.05));
+	}
+}
+
+//  01. End of Section Banner
+//  02. Section About
+.nabout {
+	padding-top: 120px;
+	@media (max-width: 812px) {
+		padding-top: 80px;
+	}
+	&__title {
+		position: relative;
+		left: -5px;
+	}
+}
+
+.nbrand {
+	display: inline-block;
+	@include mg-tb(10, 25);
+	&__logo {
+		width: 80%;
+		@media (max-width: 812px) {
+			width: 70%;
+		}
+	}
+}
+
+.nourteam {
+	padding: 0 0 40%;
+	background: $color-black1;
+	margin-top: 80px;
+	@media (max-width: 1024px) {
+		padding: 0 0 55%;
+	}
+	&__wrap {
+		&.list-clm.clm-04 {
+			.nitem {
+				@media (max-width: 812px) {
+					width: 50%;
+				}
+				@media (max-width: 320px) {
+					width: 100%;
+				}
+			}
+		}
+	}
+	@media (max-width: 568px) {
+		padding: 0 0 70%;
+	}
+	.nitem {
+		position: relative;
+		&:hover {
+			.nourteam__img {
+				@include prefix (filter, grayscale(0));
+				&:after {
+					background-color: transparent;
+				}
+			}
+			.nourteam__des-title {
+				@include prefix(transform, translateY(-5px));
+			}
+			.nourteam__des-pos {
+				color: #fff;
+				@include prefix(transform, translateY(-10px));
+			}
+		}
+	}
+	&__img {
+		position: relative;
+		overflow: hidden;
+		@include aspect-ratio(1, 1);
+		@include prefix(filter, grayscale(100%));
+		@include prefix(transition, all .2s cubic-bezier(0.25, 0.8, 0.25, 1));
+		&:after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			background-color: rgba($color-black1, .65);
+			@include prefix(transition, background-color .4s cubic-bezier(0.25, 0.8, 0.25, 1));
+		}
+	}
+	&__des {
+		position: absolute;
+		bottom: 10px;
+		left: 0;
+		width: 100%;
+		padding-right: 25px;
+		padding-bottom: 20px;
+	}
+	&__des-title {
+		font-size: $font-20;
+		@include prefix(transition, all .4s cubic-bezier(0.25, 0.8, 0.25, 1));
+		@media (max-width: 568px) {
+			font-size: 1rem;
+		}
+	}
+	&__des-pos {
+		display: block;
+		font-size: $font-15;
+		color: rgba($color-gray, .7);
+		@include prefix(transition, all .6s cubic-bezier(0.25, 0.8, 0.25, 1));
+	}
+}
+
+.nmorale {
+	margin-top: -30%;
+	@media (max-width: 1024px) {
+		margin-top: -50%;
+	}
+	@media (max-width: 568px) {
+		background-color: $color-black1;
+	}
+	&__wrap {
+		margin-top: 80px;
+		@include mg-lr(0, -10);
+		@media (max-width: 812px) {
+			margin-bottom: -10px;
+			&.list-clm.clm-04 {
+				.nitem {
+					width: 50%;
+				}
+			}
+		}
+		@media (max-width: 568px) {
+			margin-top: 50px;
+			padding-bottom: 80px;
+		}
+		@media (max-width: 320px) {
+			&.list-clm.clm-04 {
+				.nitem {
+					width: 100%;
+				}
+			}
+		}
+		>.nitem {
+			position: relative;
+			@include pd-lr(0, 10);
+			@include prefix(transition, all .5s cubic-bezier(0.25, 0.8, 0.25, 1));
+			@media (max-width: 812px) {
+				margin-bottom: 10px;
+			}
+			&:hover {
+				@include prefix(transform, translateY(-10px));
+				.nmorale__info-des {
+					opacity: 1;
+					visibility: visible;
+					@include prefix(transform, translateY(0));
+				}
+				.nmorale__img {
+					box-shadow: 0 7px 30px -5px rgba(51, 51, 51, 0.7);
+				}
+				.nmorale__img:after {
+					background-color: rgba($color-main, .85);
+				}
+				@media (max-width: 812px) {
+					@include prefix(transform, none);
+					.nmorale__img:after {
+						background-color: rgba($color-grayblack, .15);
+					}
+					.nmorale__img {
+						box-shadow: none;
+					}
+				}
+			}
+		}
+	}
+	&__img {
+		position: relative;
+		overflow: hidden;
+		border-radius: 5px;
+		-webkit-border-radius: 5px;
+		@include aspect-ratio(420, 558);
+		&:after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			background-color: rgba(103, 102, 102, 0.3);
+			@include prefix(transition, background-color .4s cubic-bezier(0.25, 0.8, 0.25, 1));
+		}
+	}
+	&__info {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 70%;
+		@include prefix(transform, translate(-50%, -50%));
+		@media (max-width: 568px) {
+			width: 100%;
+			padding: 15px;
+		}
+	}
+	&__info-num {
+		font-size: $font-14;
+	}
+	&__info-title {
+		@include mg-tb(10, 5);
+		@media (max-width: 568px) {
+			font-size: 2rem;
+		}
+	}
+	&__info-des {
+		font-size: $font-15;
+		opacity: 0;
+		visibility: hidden;
+		@include prefix(transform, translateY(50px));
+		@include prefix(transition, all .3s cubic-bezier(0.25, 0.8, 0.25, 1));
+		@media (max-width: 812px) {
+			opacity: 1;
+			visibility: visible;
+			@include prefix(transform, none);
+		}
+	}
+}
+
+//  02. End of Section About
+// 03. Banner Intro
+.nbanner-intro {
+	padding-top: 150px;
+	&__wrap {
+		.nitem {
+			text-align: center;
+			position: relative;
+			overflow: hidden;
+			@include aspect-ratio(16, 9);
+			&:after {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				background-color: rgba(#333, .8);
+			}
+		}
+	}
+	&__wrap-title {
+		position: absolute;
+		left: 50%;
+		top: 56%;
+		width: 100%;
+		z-index: 2;
+		@include pd-lr(20, 20);
+		@include prefix(transform, translate(-50%, -50%));
+	}
+}
+
+// 03. End of Banner Intro
+// 04. Section Services
+.nservices {
+	margin-top: 150px;
+	background-color: $color-gray;
+	@include pd-tb(150, 160);
+	@media (max-width: 812px) {
+		margin-top: 80px;
+		@include pd-tb(80, 80);
+	}
+	@media (max-width: 568px) {
+		margin-top: 0;
+		@include pd-tb(80, 50);
+	}
+	&__item {
+		&:nth-child(even) {
+			direction: rtl;
+			.nservices__item-btn {
+				.nbutton {
+					direction: ltr;
+				}
+			}
+		}
+		@media (max-width: 812px) {
+			margin-bottom: 30px;
+		}
+	}
+	&__wrap {
+		margin-top: 120px;
+		@media (max-width: 812px) {
+			margin-top: 70px;
+		}
+	}
+	&__item-left {
+		width: 50%;
+		position: relative;
+		overflow: hidden;
+		@include aspect-ratio(4, 3);
+		@media (max-width: 812px) {
+			width: 100%;
+			display: block;
+			&:before {
+				padding-top: 65%;
+			}
+		}
+		&:after {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			background-color: rgba(#333, .3);
+		}
+	}
+	&__item-right {
+		background-color: #fff;
+		padding: 30px 70px;
+		width: 50%;
+		@media (max-width: 812px) {
+			width: 100%;
+			display: block;
+			padding: 30px;
+		}
+		@media (max-width: 320px) {
+			padding: 20px;
+		}
+	}
+	&__item-heading {
+		font-size: $font-40;
+		color: $color-main;
+		@media (max-width: 568px) {
+			font-size: 1.8rem;
+		}
+	}
+	&__item-des {
+		margin-top: 10px;
+	}
+	&__item-btn {
+		margin-top: 40px;
+		@media (max-width: 812px) {
+			margin-top: 25px;
+		}
+	}
+}
+
+// 04. End of Section Services
+// 05. Section blog 
+.nblog {
+	@include pd-tb(150, 100);
+	@media (max-width: 812px) {
+		@include pd-tb(80, 80);
+	}
+	@media (max-width: 568px) {
+		@include pd-tb(50, 50);
+	}
+}
+
+.nlist-blog {
+	@include pd-tb(100, 50);
+	padding-top: 100px;
+	opacity: 0;
+	visibility: hidden;
+	@include prefix(transition, all .3s ease-in-out);
+	@media (max-width: 812px) {
+		@include pd-tb(50, 50);
+	}
+	@media (max-width: 568px) {
+		@include pd-lr(15, 15);
+	}
+	&.slick-initialized {
+		opacity: 1;
+		visibility: visible;
+	}
+	.slick-list {
+		@media (max-width: 1280px) {
+			padding: 0 60px !important;
+		}
+		@media (max-width: 568px) {
+			padding: 0 !important;
+		}
+	}
+	.slick-next,
+	.slick-prev {
+		top: 53%;
+		z-index: 2;
+		font-size: 30px;
+		width: 40px;
+		height: 40px;
+		border: 1px solid #fff;
+		border-radius: 50%;
+		-webkit-border-radius: 50%;
+		@include prefix(transition, background-color .3s ease);
+		@media (max-width: 1280px) {
+			display: none !important;
+		}
+		&:hover {
+			background-color: rgba(#fff, .2);
+		}
+		&:before {
+			display: block;
+		}
+	}
+	.slick-next {
+		right: 250px;
+	}
+	.slick-prev {
+		left: 250px;
+	}
+	.item {
+		position: relative;
+		opacity: .3;
+		@include prefix(transform, scale(.93));
+		@include prefix(transition, all .25s cubic-bezier(0.25, 0.8, 0.25, 1));
+		&.slick-active {
+			opacity: 1;
+			border-radius: 5px;
+			-webkit-border-radius: 5px;
+			@include prefix(transform, scale(1));
+			@include prefix(box-shadow, 0 3px 30px rgba(0, 0, 0, 0.4));
+		}
+		&:focus {
+			outline: 0;
+		}
+	}
+	.slick-dotted.slick-slider {
+		margin-bottom: 0;
+	}
+	.slick-dots {
+		li {
+			margin: 0;
+			&.slick-active {
+				button {
+					&:before {
+						color: $color-main;
+					}
+				}
+			}
+			button {
+				&:hover {
+					&:before {
+						color: $color-main;
+					}
+				}
+				&:before {
+					font-size: 20px;
+				}
+			}
+		}
+	}
+	&__img {
+		position: relative;
+		overflow: hidden;
+		border-radius: 5px;
+		-webkit-border-radius: 5px;
+		@include aspect-ratio(1455, 654);
+		&:after {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			background-color: rgba(#333, .6);
+		}
+	}
+	&__info-title {
+		>a {
+			border-bottom: 1px solid transparent;
+			@include prefix(transition, all .1s ease-in);
+			&:hover {
+				border-color: #fff;
+			}
+		}
+	}
+	&__info {
+		position: absolute;
+		text-align: center;
+		width: 55%;
+		top: 55%;
+		left: 50%;
+		@include pd-lr(20, 20);
+		@include prefix(transform, translate(-50%, -50%));
+		@media (max-width: 1280px) {
+			width: 80%;
+		}
+	}
+	&__info-des {
+		margin-top: 15px;
+		font-size: $font-14;
+		@media (max-width: 568px) {
+			margin-top: 10px;
+			font-size: .7rem;
+		}
+	}
+}
+
+// 05. End of Section Blog
+// 06.  Section Event Schedule
+.nevent {
+	background-color: $color-main;
+	@include pd-tb(150, 150);
+	@media (max-width: 812px) {
+		@include pd-tb(80, 80);
+	}
+	&__schedule {
+		width: 100%;
+		margin: 80px auto 0 auto;
+		background-color: #fff;
+		border-radius: 5px;
+		-webkit-border-radius: 5px;
+		@include prefix(box-shadow, 0 1px 30px rgba(0, 0, 0, 0.2));
+		@media (max-width: 812px) {
+			margin: 50px auto 0 auto;
+			width: 100%;
+		}
+	}
+	&__schedule-name {
+		padding: 20px 25px;
+		background-color: $color-black;
+		border-top-left-radius: 5px;
+		-webkit-border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
+		-webkit-border-top-right-radius: 5px;
+		border-bottom: 1px solid $color-gray;
+		.nicon {
+			width: 30px;
+			+.heading-h5 {
+				margin-left: 10px;
+			}
+		}
+		&__date {
+			@include mg-tb(15, 5);
+			>.item {
+				display: inline-block;
+				vertical-align: middle;
+				margin-right: 5px;
+				&:last-child {
+					margin-right: 0;
+				}
+				@media (max-width: 568px) {
+					width: 100%;
+					+.item {
+						margin-top: 15px;
+					}
+					.nform-control,
+					.nbutton.nsize--b {
+						min-width: auto;
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+	&__schedule-info {
+		border-bottom: 1px solid $color-gray;
+		&:last-child {
+			border-bottom: none;
+		}
+		.inner-item {
+			padding: 25px;
+			&.inner-pane {
+				cursor: pointer;
+				@include prefix(transition, background-color .2s ease-in-out);
+				&:hover {
+					background-color: $color-gray;
+				}
+				&.is-active {
+					background-color: $color-gray;
+				}
+			}
+			&.inner-content {
+				display: none;
+			}
+		}
+		&__thumb {
+			position: relative;
+			overflow: hidden;
+			width: 100px;
+			border-radius: 50%;
+			-webkit-border-radius: 50%;
+			@include aspect-ratio(1, 1);
+			@media (max-width: 812px) {
+				width: 70px;
+			}
+			&:after {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				background-color: rgba(#333, .4);
+			}
+		}
+		&__content {
+			@include pd-lr(25, 25);
+			width: calc(100% - 100px);
+			@media (max-width: 812px) {
+				@include pd-lr(15, 15);
+				width: calc(100% - 70px)
+			}
+			.event-title {
+				color: $color-main;
+				margin-top: 2px;
+				@media (max-width: 568px) {
+					font-size: 1.4rem;
+				}
+			}
+		}
+		&__content-inner {
+			padding-left: 25px;
+			@media (max-width: 812px) {
+				padding-left: 15px;
+			}
+			@media (max-width: 568px) {
+				padding-left: 0;
+			}
+			.inner {
+				float: right;
+				width: calc(100% - 100px);
+				@media (max-width: 812px) {
+					width: calc(100% - 70px);
+				}
+				@media (max-width: 568px) {
+					width: 100%;
+				}
+				.description {
+					margin-top: 10px;
+				}
+				.nlist-tag {
+					@include pd-tb(20, 30);
+					border-bottom: 1px solid $color-gray;
+					@media (max-width: 812px) {
+						@include pd-tb(20, 15);
+					}
+					.item {
+						+.item {
+							margin-left: 20px;
+							@media (max-width: 568px) {
+								margin-left: 10px;
+							}
+						}
+					}
+					&:before {
+						content: '';
+						background: url(../../assets/images/bookmark.svg) no-repeat 50% 50%;
+						background-size: cover;
+						display: inline-block;
+						vertical-align: middle;
+						width: 20px;
+						height: 20px;
+						margin-right: 10px;
+						@media (max-width: 812px) {
+							width: 15px;
+							height: 15px;
+						}
+					}
+				}
+				.nlocation {
+					margin-top: 30px;
+					@media (max-width: 812px) {
+						margin-top: 20px;
+					}
+				}
+			}
+			.nclear {
+				clear: both;
+			}
+		}
+	}
+}
+
+// 06. End of Section Event Schedule
