@@ -1,12 +1,12 @@
 @mixin fontFace($name-family, $name-fonts) {
-    $file-path: '../' + 'fonts/' + $name-fonts;
-    @font-face {
-        font-family: $name-family;
-        src: url($file-path +'.eot');
-        src: url($file-path +'.woff2') format('woff2'), url($file-path +'.woff') format('woff'), url($file-path +'.ttf') format('truetype'), url($file-path +'.svg#'+$name-fonts) format('svg'), url($file-path +'.eot?#iefix') format('embedded-opentype');
-        font-weight: normal;
-        font-style: normal;
-    }
+	$file-path: '../' + 'fonts/' + $name-fonts;
+	@font-face {
+		font-family: $name-family;
+		src: url($file-path +'.eot');
+		src: url($file-path +'.woff2') format('woff2'), url($file-path +'.woff') format('woff'), url($file-path +'.ttf') format('truetype'), url($file-path +'.svg#'+$name-fonts) format('svg'), url($file-path +'.eot?#iefix') format('embedded-opentype');
+		font-weight: normal;
+		font-style: normal;
+	}
 }
 
 // @include fontFace(Monst-R, Montserrat-Regular);
@@ -14,5 +14,3 @@
 // @include fontFace(Monst-SB, Montserrat-SemiBold);
 // @include fontFace(Monst-B, Montserrat-Bold);
 // @include fontFace(Monst-Bl, Montserrat-Black);
-// @include fontFace(Geo-BA, Geometric415BT-BlackA);
-// @include fontFace(BJ, BigJohn);

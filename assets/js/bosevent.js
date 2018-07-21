@@ -18,10 +18,21 @@ $.main = {
 	    0.2. Menu Mobile
 	------------------------------------------------------------*/
 	menuMobile: function () {
-		$('.nheader__hamburger').on('click', function () {
+		var hamburgerEle = $('.nheader__hamburger'),
+			headerRightMenu = $('.nheader__wrap .nheader__right'),
+			clickFlag = true;
+		hamburgerEle.on('click', function () {
 			$(this).toggleClass('open');
-			$('.nheader__wrap .nheader__right').toggleClass('active');
+			headerRightMenu.toggleClass('active');
+			clickFlag = true;
 		});
+		$('body').on('click', function () {
+			if (!clickFlag) {
+				hamburgerEle.removeClass('open');
+				headerRightMenu.removeClass('active');
+			}
+			clickFlag = false;
+		})
 	},
 	/*------------------------------------------------------------
 	    0.2. Accordion content
@@ -69,8 +80,10 @@ $.main = {
 			var curSection = $(this).attr('href'),
 				headerHeight = $('.nheader').height();
 			setTimeout(() => {
+
 				$('html, body').animate({
-					scrollTop: $(curSection).offset().top - headerHeight + 2
+					// scrollTop: $(curSection).offset().top - headerHeight + 2
+					scrollTop: $(curSection).offset().top - 40
 				}, 1000);
 			}, 100);
 		})
@@ -82,11 +95,11 @@ $.main = {
 	showBackToTop: function () {
 		$(window).on('scroll', function () {
 			var scroll = $(window).scrollTop(),
-				element_backtotop = $('.nbtt');
-			if (scroll >= 500) {
-				element_backtotop.addClass('nshow');
+				eleBackToTop = $('.nchange-lang, .nbacktotop');
+			if (scroll >= 300) {
+				eleBackToTop.addClass('active');
 			} else {
-				element_backtotop.removeClass('nshow');
+				eleBackToTop.removeClass('active');
 			}
 		})
 	},
@@ -94,11 +107,13 @@ $.main = {
 	    0.4. Back To Top
 	------------------------------------------------------------*/
 	backToTop: function () {
-		$(document).on('click', '#back-top', function (e) {
+		$(document).on('click', '.nbacktotop', function (e) {
 			e.preventDefault();
-			$('html,body').stop().animate({
-				scrollTop: 0
-			}, 1000);
+			setTimeout(() => {
+				$('html,body').stop().animate({
+					scrollTop: 0
+				}, 1500);
+			}, 200);
 		});
 	},
 	/*------------------------------------------------------------
@@ -118,7 +133,7 @@ $(function () {
 	$.main.affixHeader();
 	$.main.menuMobile();
 	$.main.scrollSpy();
-	// $.main.showBackToTop();
+	$.main.showBackToTop();
 	$.main.scrollFirstSection();
 	$.main.accordionContent($('.nevent__schedule-info .inner-pane'), $('.nevent__schedule-info .inner-content'));
 	$.main.backToTop();
