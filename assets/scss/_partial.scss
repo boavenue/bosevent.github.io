@@ -1,11 +1,15 @@
 .nheader {
+	&.no-fix {
+		position: relative !important;
+	}
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
 	z-index: 2;
 	@include prefix(transition, all .4s cubic-bezier(0.445, 0.05, 0.55, 0.95));
-	&.affix {
+	&.affix,
+	&.no-fix {
 		position: fixed;
 		background-color: #fff;
 		box-shadow: 0 0px 40px rgba(0, 0, 0, 0.15);
@@ -28,6 +32,9 @@
 				>.item {
 					>a {
 						color: $color-black;
+						&:hover {
+							color: $color-main;
+						}
 						&.active {
 							padding: 10px 15px;
 							border-radius: 2px;
@@ -76,9 +83,9 @@
 		text-align: right;
 		width: 88%;
 		@media (min-width: 1025px) and (max-width: 1289px) {
-			width: 84%;
+			width: 84% !important;
 		}
-		@media only screen and (max-width: 1366px) {
+		@media (max-width: 1399px) {
 			width: 86%;
 		}
 		@media (max-width: 1024px) {

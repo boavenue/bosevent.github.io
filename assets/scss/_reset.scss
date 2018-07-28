@@ -169,13 +169,18 @@ body {
 
 body {
 	font-family: 'Montserrat', sans-serif;
-	color: #333;
+	color: rgba($color-black, .6);
 	line-height: 1.5;
+	letter-spacing: -0.2px;
 	font-feature-settings: "palt";
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-webkit-text-size-adjust: 100%;
 	overflow-x: hidden;
+}
+
+a {
+	@include prefix(transition, all .3s ease-in-out);
 }
 
 a,
